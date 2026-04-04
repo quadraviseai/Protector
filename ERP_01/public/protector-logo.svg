@@ -1,0 +1,17 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" fill="#1F8F3A"/>
+  <defs>
+    <radialGradient id="protectorGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(128 90) rotate(90) scale(88)">
+      <stop stop-color="#2ECF59"/>
+      <stop offset="1" stop-color="#188334"/>
+    </radialGradient>
+  </defs>
+  <circle cx="128" cy="92" r="58" fill="url(#protectorGlow)"/>
+  <path d="M82 58C110 27 171 29 193 75C208 105 204 152 169 186" stroke="white" stroke-width="12" stroke-linecap="round"/>
+  <path d="M67 77C101 45 150 47 179 78C189 89 196 103 199 118" stroke="white" stroke-width="12" stroke-linecap="round" opacity="0.95"/>
+  <path d="M62 104C93 116 120 130 143 148C159 161 171 177 178 193" stroke="white" stroke-width="12" stroke-linecap="round" opacity="0.95"/>
+  <text x="120" y="82" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">P</text>
+  <text x="136" y="138" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">S</text>
+  <text x="24" y="212" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="800" letter-spacing="1">PROTECTOR</text>
+  <text x="16" y="238" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="15" letter-spacing="4">SERVICES PVT LTD</text>
+</svg>
