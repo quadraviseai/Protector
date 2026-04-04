@@ -1,0 +1,9 @@
+[Unit]
+Description=Deploy Protector site from GitHub
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/var/www/protector-app
+ExecStart=/usr/bin/bash /var/www/protector-app/deploy/protector/deploy.sh

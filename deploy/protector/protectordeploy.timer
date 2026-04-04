@@ -1,0 +1,10 @@
+[Unit]
+Description=Poll GitHub and deploy Protector automatically
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=1min
+Unit=protectordeploy.service
+
+[Install]
+WantedBy=timers.target
