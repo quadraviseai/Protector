@@ -3,37 +3,65 @@ import { Alert, Button, Card, Col, Empty, Row, Skeleton, Space, Tag, Typography 
 import {
   ArrowRightOutlined,
   AuditOutlined,
+  CheckSquareOutlined,
   BankOutlined,
   CheckCircleOutlined,
   CrownOutlined,
+  HeartOutlined,
   IdcardOutlined,
+  SafetyOutlined,
   SafetyCertificateOutlined,
   SolutionOutlined,
   TeamOutlined,
+  UserOutlined,
   TrophyOutlined
 } from '@ant-design/icons';
-
-const highlights = [
-  { label: 'Years of Experience', value: '12+', icon: <TrophyOutlined /> },
-  { label: 'Trained Staff', value: '250+', icon: <TeamOutlined /> },
-  { label: 'Clients Served', value: '100+', icon: <BankOutlined /> },
-  { label: 'Projects Managed', value: '300+', icon: <SolutionOutlined /> }
-];
 
 const values = [
   {
     title: 'Vision',
-    description: 'To become a trusted long-term operations partner for businesses that need reliable support services.',
+    description: 'To be a trusted and preferred partner in delivering integrated facility management solutions, known for reliability, quality service, and long-term client relationships.',
     ribbon: 'Vision'
   },
   {
     title: 'Mission',
-    description: 'To deliver disciplined security, housekeeping, facility management, and B2B support with consistency and professionalism.',
+    description: 'To provide efficient, safe, and high-quality facility management, housekeeping, security, deep cleaning, and indoor gardening services through trained manpower, structured processes, and a customer-focused approach, ensuring clean, secure, and well-maintained environments for every client.',
     ribbon: 'Mission'
   },
   {
-    title: 'Core Values',
-    description: 'Professionalism, reliability, safety, accountability, and service quality guide every client engagement.',
+    title: 'Values',
+    points: [
+      {
+        icon: <CheckSquareOutlined />,
+        title: 'Integrity',
+        description: 'We operate with honesty, transparency, and accountability.'
+      },
+      {
+        icon: <CheckCircleOutlined />,
+        title: 'Reliability',
+        description: 'Consistent and dependable service delivery at all times.'
+      },
+      {
+        icon: <TrophyOutlined />,
+        title: 'Quality',
+        description: 'Commitment to high standards in every service we provide.'
+      },
+      {
+        icon: <UserOutlined />,
+        title: 'Professionalism',
+        description: 'Skilled workforce with disciplined execution.'
+      },
+      {
+        icon: <HeartOutlined />,
+        title: 'Customer Focus',
+        description: 'Understanding and meeting client needs with care and responsiveness.'
+      },
+      {
+        icon: <SafetyOutlined />,
+        title: 'Safety & Hygiene',
+        description: 'Prioritizing safe and healthy environments in all operations.'
+      }
+    ],
     ribbon: 'Values'
   }
 ];
@@ -52,18 +80,63 @@ const workforcePoints = [
 
 const industries = ['Corporate', 'Healthcare', 'Retail', 'Manufacturing', 'Education'];
 
+const overviewPillars = ['Professionalism', 'Reliability', 'Structured Delivery'];
+
+const serviceFocusItems = [
+  { title: 'Security Services', icon: <SafetyCertificateOutlined /> },
+  { title: 'Housekeeping', icon: <CheckCircleOutlined /> },
+  { title: 'Facility Management', icon: <AuditOutlined /> },
+  { title: 'Deep Cleaning', icon: <SolutionOutlined /> },
+  { title: 'Indoor Gardening', icon: <BankOutlined /> }
+];
+
 const directors = [
   {
-    name: 'Managing Director',
+    name: 'Navamani P',
     icon: <CrownOutlined />,
-    description: 'Provides strategic direction for Protector Services Pvt Ltd, focusing on long-term B2B growth, trust, and disciplined service delivery.'
+    role: 'Director - Operation - Facility Management',
+    description: 'Navamani P, Head of Business Operations - Housekeeping & Facility Management, brings over 37 years of industry experience since 1989. With a background in engineering, he has worked with leading organizations including DTSS, HFPL, CLR, and Uttara. His expertise spans training, transition, end-to-end operations, and client management. He is known for his structured approach and strong leadership in delivering consistent service excellence.'
   },
   {
-    name: 'Operations Director',
+    name: 'Sridhar S',
+    icon: <SafetyCertificateOutlined />,
+    role: 'Director - Security Services',
+    description: 'S. Sridhar holds a B.E. in Mechanical Engineering along with a Diploma in Mechanical Engineering and brings extensive experience in the security industry. He has served for over 15 years with Eagle Eye, where he gained strong expertise in operations management and recruitment, particularly in selecting and deploying personnel across various security functions. Under his leadership, Protector Redefining Security, established in December 2002, has grown into a trusted service provider across Karnataka, with a workforce of over 450 trained security personnel.'
+  },
+  {
+    name: 'Krishna Murthy',
     icon: <IdcardOutlined />,
-    description: 'Leads workforce supervision, operational quality, and field execution to ensure reliable client outcomes across service categories.'
+    role: 'Director - Facility Management & Garden and Landscape Architect',
+    description: 'Krishna Murthy is a seasoned professional in facility management and landscape architecture, bringing extensive experience in creating and maintaining functional and aesthetically enhanced environments. With a strong understanding of indoor and outdoor space management, he specializes in integrating greenery solutions with operational efficiency. His expertise includes facility maintenance planning, indoor gardening, landscape design, and sustainable green solutions. He plays a key role in enhancing workplace environments by combining practical facility operations with modern landscaping concepts, ensuring both visual appeal and environmental well-being.'
+  },
+  {
+    name: 'Nirmal',
+    icon: <TeamOutlined />,
+    role: 'General Manager Operations',
+    description: 'Nirmal oversees day-to-day operations across multiple service verticals, ensuring smooth execution and adherence to quality standards. With strong operational expertise, he is responsible for team coordination, service delivery, client servicing, and performance monitoring. He brings a hands-on approach to managing workforce deployment and ensures that all services are delivered efficiently, maintaining consistency, discipline, and client satisfaction.'
+  },
+  {
+    name: 'Velayutham Raja',
+    icon: <AuditOutlined />,
+    role: 'Senior Manager Operations',
+    description: 'Velayutham Raja supports operational management with a focus on execution, supervision, and quality control. He plays a critical role in coordinating field teams, monitoring service performance, and ensuring compliance with company standards. With practical experience in handling on-ground challenges, he contributes to maintaining service reliability and operational efficiency across projects.'
+  },
+  {
+    name: 'Sagar Venkatesh',
+    icon: <BankOutlined />,
+    role: 'Finance Consultant',
+    description: 'Sagar is responsible for overseeing financial planning, compliance, and advisory functions of the organization. With expertise in accounting, taxation, and financial management, he ensures strong financial discipline and regulatory compliance. He supports the organization in strategic decision-making by providing financial insights, cost optimization strategies, and structured financial reporting.'
   }
 ];
+
+function ServiceFocusCard({ icon, title }) {
+  return (
+    <div className="about-page__focus-item">
+      <div className="about-page__focus-icon">{icon}</div>
+      <Typography.Text className="about-page__focus-title">{title}</Typography.Text>
+    </div>
+  );
+}
 
 function AboutPage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -87,7 +160,7 @@ function AboutPage() {
           </Typography.Title>
           <Typography.Paragraph className="about-page__hero-text">
             Learn who we are, what we do, and why businesses trust our security,
-            housekeeping, facility management, and B2B support capabilities.
+            housekeeping, facility management, deep cleaning, and indoor gardening capabilities.
           </Typography.Paragraph>
           <Space wrap className="about-page__hero-actions">
             <Button
@@ -114,10 +187,6 @@ function AboutPage() {
         <Typography.Title level={2} className="theme-section-title">
           Company Overview
         </Typography.Title>
-        <Typography.Paragraph className="theme-section-intro">
-          We are a business-focused service company providing security, housekeeping,
-          facility management, and B2B manpower solutions for organizations that need dependable operational support.
-        </Typography.Paragraph>
 
         {isLoading ? (
           <Card className="theme-card about-page__overview-card">
@@ -128,20 +197,29 @@ function AboutPage() {
             <Col xs={24} lg={14}>
               <Card className="about-page__overview-card">
                 <div className="about-card__ribbon">
-                  <span>Company</span>
+                  <span>Company Profile</span>
                 </div>
                 <Typography.Title level={3} className="about-page__overview-title">
-                  Built for B2B confidence and long-term service delivery
+                  Built for Reliable Facility & Support Services Delivery
                 </Typography.Title>
                 <Typography.Paragraph className="about-page__overview-text">
-                  Our company supports corporate, institutional, and industrial clients with structured service delivery,
-                  trained manpower, and disciplined site execution. We focus on building trust through professionalism,
-                  reliability, and clear operational accountability.
+                  We are a business-focused service provider delivering facility management, housekeeping,
+                  security services, deep cleaning, and indoor gardening solutions to organizations that require dependable operational support.
                 </Typography.Paragraph>
                 <Typography.Paragraph className="about-page__overview-text">
-                  The business is positioned around practical support services that reduce operational burden and help
-                  clients maintain safer, cleaner, and better-managed environments.
+                  Built on professionalism, reliability, and structured service delivery, we provide trained manpower
+                  and disciplined execution to ensure safe, clean, and well-maintained environments.
                 </Typography.Paragraph>
+                <Typography.Paragraph className="about-page__overview-text">
+                  Our services are designed to reduce operational burden and help clients maintain efficient and hygienic workplaces.
+                </Typography.Paragraph>
+                <Space wrap size={[10, 10]} className="about-page__overview-pillars">
+                  {overviewPillars.map((item) => (
+                    <Tag key={item} className="about-page__overview-pill">
+                      {item}
+                    </Tag>
+                  ))}
+                </Space>
               </Card>
             </Col>
             <Col xs={24} lg={10}>
@@ -149,19 +227,16 @@ function AboutPage() {
                 <Typography.Text className="service-detail-card__panel-label">
                   Service Focus
                 </Typography.Text>
-                <Space direction="vertical" size={14} className="about-page__expertise-list">
-                  {[
-                    'Security Services',
-                    'Housekeeping',
-                    'Facility Management',
-                    'B2B Solutions'
-                  ].map((item) => (
-                    <div key={item} className="service-detail-card__list-item">
-                      <CheckCircleOutlined />
-                      <span>{item}</span>
-                    </div>
+                <Typography.Paragraph className="about-page__expertise-intro">
+                  Operational support services aligned for dependable day-to-day execution.
+                </Typography.Paragraph>
+                <Row gutter={[14, 14]} className="about-page__expertise-list">
+                  {serviceFocusItems.map((item) => (
+                    <Col xs={24} sm={12} key={item.title}>
+                      <ServiceFocusCard {...item} />
+                    </Col>
                   ))}
-                </Space>
+                </Row>
               </Card>
             </Col>
           </Row>
@@ -188,9 +263,31 @@ function AboutPage() {
           </Row>
         ) : values.length > 0 ? (
           <Row gutter={[28, 28]}>
-            {values.map((item) => (
-              <Col xs={24} md={8} key={item.title}>
-                <Card className="about-card">
+            <Col xs={24} lg={10}>
+              <Row gutter={[28, 28]}>
+                {values.filter((item) => item.title !== 'Values').map((item) => (
+                  <Col xs={24} key={item.title}>
+                    <Card className="about-card">
+                      <div className="about-card__ribbon">
+                        <span>{item.ribbon}</span>
+                      </div>
+                      <div className="about-card__icon">
+                        <AuditOutlined />
+                      </div>
+                      <Typography.Title level={4} className="about-card__title">
+                        {item.title}
+                      </Typography.Title>
+                      <Typography.Paragraph className="about-card__description">
+                        {item.description}
+                      </Typography.Paragraph>
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+            </Col>
+            <Col xs={24} lg={14}>
+              {values.filter((item) => item.title === 'Values').map((item) => (
+                <Card className="about-card about-page__values-card" key={item.title}>
                   <div className="about-card__ribbon">
                     <span>{item.ribbon}</span>
                   </div>
@@ -200,43 +297,30 @@ function AboutPage() {
                   <Typography.Title level={4} className="about-card__title">
                     {item.title}
                   </Typography.Title>
-                  <Typography.Paragraph className="about-card__description">
-                    {item.description}
-                  </Typography.Paragraph>
+                  <Row gutter={[12, 12]} className="about-page__values-list">
+                    {item.points.map((point) => (
+                      <Col xs={24} md={12} xl={8} key={point.title}>
+                        <div className="about-page__values-item">
+                          <div className="about-page__values-item-icon">{point.icon}</div>
+                          <Typography.Title level={5} className="about-page__values-item-title">
+                            {point.title}
+                          </Typography.Title>
+                          <Typography.Paragraph className="about-page__values-item-description">
+                            {point.description}
+                          </Typography.Paragraph>
+                        </div>
+                      </Col>
+                    ))}
+                  </Row>
                 </Card>
-              </Col>
-            ))}
+              ))}
+            </Col>
           </Row>
         ) : (
           <Card className="theme-card">
             <Empty description="Mission and vision details are not available right now." />
           </Card>
         )}
-      </section>
-
-      <section className="section-block">
-        <Typography.Title level={2} className="theme-section-title">
-          Company Highlights
-        </Typography.Title>
-        <Typography.Paragraph className="theme-section-intro">
-          Quick indicators that help visitors assess company capability and business scale.
-        </Typography.Paragraph>
-
-        <Row gutter={[28, 28]}>
-          {highlights.map((item) => (
-            <Col xs={12} md={6} key={item.label}>
-              <Card className="about-page__highlight-card">
-                <div className="about-page__highlight-icon">{item.icon}</div>
-                <Typography.Title level={2} className="about-page__highlight-value">
-                  {item.value}
-                </Typography.Title>
-                <Typography.Paragraph className="about-page__highlight-label">
-                  {item.label}
-                </Typography.Paragraph>
-              </Card>
-            </Col>
-          ))}
-        </Row>
       </section>
 
       <section className="section-block">
@@ -248,7 +332,7 @@ function AboutPage() {
         </Typography.Paragraph>
         <Row gutter={[28, 28]} justify="center">
           {directors.map((director) => (
-            <Col xs={24} md={12} key={director.name}>
+            <Col xs={24} md={12} xl={8} key={director.name}>
               <Card className="about-card about-page__director-card">
                 <div className="about-card__ribbon">
                   <span>Leadership</span>
@@ -257,6 +341,9 @@ function AboutPage() {
                 <Typography.Title level={4} className="about-card__title">
                   {director.name}
                 </Typography.Title>
+                <Typography.Text className="about-page__director-role">
+                  {director.role}
+                </Typography.Text>
                 <Typography.Paragraph className="about-card__description">
                   {director.description}
                 </Typography.Paragraph>

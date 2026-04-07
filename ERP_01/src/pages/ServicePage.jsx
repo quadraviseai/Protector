@@ -17,10 +17,10 @@ import {
   BankOutlined,
   BuildOutlined,
   CheckCircleOutlined,
-  DeploymentUnitOutlined,
   FileTextOutlined,
   HomeOutlined,
   SafetyCertificateOutlined,
+  SolutionOutlined,
   TeamOutlined
 } from '@ant-design/icons';
 
@@ -28,42 +28,52 @@ const services = [
   {
     key: 'security',
     title: 'Security Services',
-    summary: 'Guards, industrial security, event security, and personal security support.',
+    summary: 'Trained security personnel for commercial premises, industrial sites, and controlled environments.',
     icon: <SafetyCertificateOutlined />,
     description:
-      'Security services designed for offices, industrial sites, events, and business campuses that need disciplined on-ground protection.',
-    useCases: ['Corporate guards', 'Industrial security', 'Event security', 'Personal security'],
-    benefits: ['Visible protection', 'Improved site discipline', 'Reliable incident support']
+      'Security services built for organizations that need disciplined manpower, vigilant site coverage, and dependable day-to-day protection.',
+    useCases: ['Corporate offices', 'Industrial facilities', 'Commercial complexes', 'Visitor and access control'],
+    benefits: ['Safer premises', 'Disciplined site operations', 'Reliable on-ground support']
   },
   {
     key: 'housekeeping',
     title: 'Housekeeping',
-    summary: 'Office cleaning, industrial cleaning, deep cleaning, and support staff deployment.',
+    summary: 'Routine housekeeping support for offices, institutions, and commercial workplaces.',
     icon: <HomeOutlined />,
     description:
-      'Housekeeping offerings built for commercial spaces that need consistent hygiene, upkeep, and support staff coverage.',
-    useCases: ['Office cleaning', 'Industrial cleaning', 'Deep cleaning', 'Support staff'],
-    benefits: ['Cleaner environments', 'Better presentation', 'Consistent maintenance quality']
+      'Housekeeping services designed to maintain clean, organized, and hygienic environments through trained staff and structured execution.',
+    useCases: ['Office housekeeping', 'Common area upkeep', 'Institutional cleaning', 'Daily support staffing'],
+    benefits: ['Cleaner workplaces', 'Improved hygiene standards', 'Consistent upkeep quality']
   },
   {
     key: 'facility',
     title: 'Facility Management',
-    summary: 'End-to-end facility operations and operational support for business sites.',
+    summary: 'Integrated facility support for smooth, reliable, and well-managed site operations.',
     icon: <BuildOutlined />,
     description:
-      'Facility management solutions that help organizations outsource daily operational support with clear accountability.',
-    useCases: ['Site operations', 'Maintenance coordination', 'Manpower supervision', 'Multi-site support'],
-    benefits: ['Operational efficiency', 'Centralized coordination', 'Scalable service delivery']
+      'Facility management solutions that help businesses coordinate essential support services with better control, accountability, and operational continuity.',
+    useCases: ['Site supervision', 'Maintenance coordination', 'Operational support', 'Multi-area facility management'],
+    benefits: ['Reduced operational burden', 'Better site coordination', 'Structured service delivery']
   },
   {
-    key: 'b2b',
-    title: 'B2B Solutions',
-    summary: 'Enterprise manpower outsourcing, integrated services, and long-term contracts.',
-    icon: <DeploymentUnitOutlined />,
+    key: 'deep-cleaning',
+    title: 'Deep Cleaning',
+    summary: 'Intensive cleaning solutions for periodic refresh, sanitization, and detailed upkeep.',
+    icon: <SolutionOutlined />,
     description:
-      'B2B service solutions for companies looking for reliable outsourcing models, integrated support, and long-term engagement.',
-    useCases: ['Manpower outsourcing', 'Integrated service contracts', 'Corporate support models', 'Long-term deployments'],
-    benefits: ['Contract-ready structure', 'Business-focused execution', 'Flexible enterprise scaling']
+      'Deep cleaning services for businesses that require detailed cleaning, hygiene restoration, and thorough attention to high-use spaces.',
+    useCases: ['Office deep cleaning', 'Washroom sanitization', 'Post-event cleaning', 'Periodic intensive cleaning'],
+    benefits: ['Improved hygiene levels', 'Better workspace presentation', 'Detailed cleaning coverage']
+  },
+  {
+    key: 'indoor-gardening',
+    title: 'Indoor Gardening',
+    summary: 'Indoor plant maintenance and green-space support for professional business environments.',
+    icon: <BankOutlined />,
+    description:
+      'Indoor gardening services that help organizations maintain healthy, attractive, and well-kept interior green spaces.',
+    useCases: ['Office plant care', 'Lobby greenery maintenance', 'Indoor plant upkeep', 'Commercial interior enhancement'],
+    benefits: ['Better visual appeal', 'Well-maintained green spaces', 'More pleasant workplace environments']
   }
 ];
 
@@ -85,8 +95,8 @@ function ServicePage() {
         <div className="service-page__hero-content">
           <Tag className="hero-section__eyebrow">Services Page</Tag>
           <Typography.Title className="hero-section__title service-page__hero-title">
-            Security, Housekeeping, Facility Management &{' '}
-            <span className="hero-section__title-accent">B2B Solutions</span>
+            Security, Housekeeping, Facility Management, Deep Cleaning &{' '}
+            <span className="hero-section__title-accent">Indoor Gardening</span>
           </Typography.Title>
           <Typography.Paragraph className="service-page__hero-text">
             Explore all major service categories in one place, compare offerings quickly,
@@ -139,9 +149,9 @@ function ServicePage() {
         </Typography.Paragraph>
 
         {isLoading ? (
-          <Row gutter={[28, 28]}>
+          <Row gutter={[28, 28]} justify="center">
             {[1, 2, 3, 4].map((item) => (
-              <Col xs={24} sm={12} lg={6} key={item}>
+              <Col xs={24} sm={12} lg={8} key={item}>
                 <Card className="service-overview-card service-overview-card--loading">
                   <Skeleton active paragraph={{ rows: 4 }} />
                 </Card>
@@ -149,9 +159,9 @@ function ServicePage() {
             ))}
           </Row>
         ) : services.length > 0 ? (
-          <Row gutter={[28, 28]}>
+          <Row gutter={[28, 28]} justify="center">
             {services.map((service) => (
-              <Col xs={24} sm={12} lg={6} key={service.key}>
+              <Col xs={24} sm={12} lg={8} key={service.key}>
                 <Card className="service-overview-card" hoverable>
                   <Button type="link" href={`#${service.key}`} className="service-overview-card__cta">
                     Know More

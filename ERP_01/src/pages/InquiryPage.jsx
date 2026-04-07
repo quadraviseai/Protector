@@ -19,7 +19,8 @@ const serviceOptions = [
   { label: 'Security Services', value: 'Security Services' },
   { label: 'Housekeeping', value: 'Housekeeping' },
   { label: 'Facility Management', value: 'Facility Management' },
-  { label: 'B2B Solutions', value: 'B2B Solutions' }
+  { label: 'Deep Cleaning', value: 'Deep Cleaning' },
+  { label: 'Indoor Gardening', value: 'Indoor Gardening' }
 ];
 
 function InquiryPage() {
@@ -171,7 +172,7 @@ function InquiryPage() {
                       rules={[{ required: true, message: 'Select a service type' }]}
                     >
                       <Input
-                        placeholder="Security / Housekeeping / Facility / B2B"
+                        placeholder="Security / Housekeeping / Facility / Deep Cleaning / Indoor Gardening"
                         list="service-types"
                       />
                     </Form.Item>

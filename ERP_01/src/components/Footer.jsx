@@ -11,8 +11,8 @@ function Footer() {
             <Typography.Title level={5}>Protector Services Pvt Ltd</Typography.Title>
           </div>
           <Typography.Paragraph>
-            Security, housekeeping, facility management, and B2B support services for
-            modern businesses.
+            Security services, housekeeping, facility management, deep cleaning, and indoor
+            gardening services for modern businesses.
           </Typography.Paragraph>
         </Col>
         <Col xs={24} md={8}>

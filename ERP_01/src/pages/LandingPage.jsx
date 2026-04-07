@@ -1,4 +1,4 @@
-import { Button, Card, Col, Row, Space, Statistic, Tag, Typography } from 'antd';
+import { Button, Card, Col, Row, Space, Tag, Typography } from 'antd';
 import {
   AppstoreOutlined,
   FileTextOutlined,
@@ -48,17 +48,6 @@ const industries = [
     title: 'Residential Communities',
     icon: <ApartmentOutlined />,
     description: 'Integrated services for gated communities and shared residential facilities.'
-  }
-];
-
-const testimonials = [
-  {
-    name: 'Operations Manager, Corporate Park',
-    text: 'The team helped us standardize housekeeping and site discipline without adding management overhead.'
-  },
-  {
-    name: 'Admin Head, Multi-site Retail Group',
-    text: 'Responsive support, trained personnel, and dependable execution across locations.'
   }
 ];
 
@@ -120,9 +109,14 @@ const services = [
     description: 'Integrated operations support to keep sites efficient, safe, and compliant.'
   },
   {
-    key: 'b2b',
-    title: 'B2B Solutions',
-    description: 'Custom service plans built for corporate, retail, and institutional clients.'
+    key: 'deep-cleaning',
+    title: 'Deep Cleaning',
+    description: 'Detailed cleaning support for sanitization, periodic refresh, and high-use spaces.'
+  },
+  {
+    key: 'indoor-gardening',
+    title: 'Indoor Gardening',
+    description: 'Indoor plant care and greenery maintenance for healthier, more presentable workplaces.'
   }
 ];
 
@@ -136,7 +130,7 @@ function LandingPage() {
         <div className="hero-section__overlay" />
         <div className="hero-section__content">
           <Tag className="hero-section__eyebrow">
-            Security, Housekeeping, Facility Management & B2B Solutions
+            Security Services, Housekeeping, Facility Management, Deep Cleaning & Indoor Gardening
           </Tag>
           <Typography.Title className="hero-section__title">
             Reliable Support Services for{' '}
@@ -179,8 +173,8 @@ function LandingPage() {
           About the Company
         </Typography.Title>
         <Typography.Paragraph>
-          We support businesses that need dependable field execution across security, housekeeping, facility operations,
-          and outsourced service delivery. Our focus is professional deployment, consistent supervision, and service
+          We support businesses that need dependable field execution across security services, housekeeping, facility management,
+          deep cleaning, and indoor gardening. Our focus is professional deployment, consistent supervision, and service
           structures that fit commercial environments.
         </Typography.Paragraph>
         <Row gutter={[28, 28]} justify="center" className="section-block__spacer">
@@ -250,31 +244,6 @@ function LandingPage() {
         </Row>
       </section>
 
-      <section id="testimonials" className="section-block testimonials-section">
-        <Typography.Title level={2} className="services-section__title">
-          Client Trust
-        </Typography.Title>
-        <Typography.Paragraph>
-          Proof points that help visitors feel confident before submitting an inquiry.
-        </Typography.Paragraph>
-        <Row gutter={[28, 28]} justify="center">
-          {testimonials.map((testimonial) => (
-            <Col xs={24} md={12} key={testimonial.name}>
-              <Card className="testimonial-card">
-                <div className="about-card__ribbon">
-                  <span>Trusted</span>
-                </div>
-                <Typography.Paragraph className="testimonial-card__text">
-                  {testimonial.text}
-                </Typography.Paragraph>
-                <Typography.Text strong className="testimonial-card__name">
-                  {testimonial.name}
-                </Typography.Text>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </section>
     </div>
   );
 }

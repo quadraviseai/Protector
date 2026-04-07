@@ -93,11 +93,11 @@ function IndustriesPage() {
         <div className="industries-page__hero-content">
           <Tag className="hero-section__eyebrow">Industries</Tag>
           <Typography.Title className="hero-section__title industries-page__hero-title">
-            Industry-Specific Support for <span className="hero-section__title-accent">B2B Clients</span>
+            Industry-Specific Support for <span className="hero-section__title-accent">Business Environments</span>
           </Typography.Title>
           <Typography.Paragraph className="industries-page__hero-text">
-            Explore the industries we serve and see how our security, housekeeping,
-            and facility support models adapt to different business environments.
+            Explore the industries we serve and see how our security services, housekeeping,
+            facility management, deep cleaning, and indoor gardening models adapt to different business environments.
           </Typography.Paragraph>
           <Space wrap className="industries-page__hero-actions">
             <Button
