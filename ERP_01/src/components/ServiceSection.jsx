@@ -40,7 +40,7 @@ function ServiceSection({ services }) {
                     className="service-card__image"
                     style={{ backgroundImage: `url(${homeWhyImage})` }}
                   >
-                    <Button size="small" href="/services" className="service-card__action">
+                    <Button size="small" href="/services#service-overview" className="service-card__action">
                       Know More
                     </Button>
                     <div className="service-card__label">{service.title}</div>
@@ -50,7 +50,7 @@ function ServiceSection({ services }) {
                 <Typography.Paragraph className="service-card__description">
                   {service.description}
                 </Typography.Paragraph>
-                <Button type="link" href="/services" className="service-card__link">
+                <Button type="link" href="/services#service-overview" className="service-card__link">
                   View Details
                 </Button>
               </Card>

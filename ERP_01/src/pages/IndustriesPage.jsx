@@ -211,7 +211,7 @@ function IndustriesPage() {
                       <Button
                         type="primary"
                         size="large"
-                        href="/contact"
+                        href="/inquiry"
                         icon={<ArrowRightOutlined />}
                         className="service-detail-card__button"
                       >

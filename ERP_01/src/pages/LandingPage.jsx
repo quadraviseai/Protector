@@ -141,7 +141,7 @@ function LandingPage() {
             <Button
               type="primary"
               size="large"
-              href="#contact"
+              href="/inquiry"
               icon={<FileTextOutlined />}
               className="hero-section__button hero-section__button--primary"
             >
@@ -149,7 +149,7 @@ function LandingPage() {
             </Button>
             <Button
               size="large"
-              href="/services"
+              href="/services#service-overview"
               icon={<AppstoreOutlined />}
               className="hero-section__button hero-section__button--secondary"
             >

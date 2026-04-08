@@ -215,7 +215,7 @@ function ServicePage() {
                       <Button
                         type="primary"
                         size="large"
-                        href="#service-navigation"
+                        href="/inquiry"
                         icon={<FileTextOutlined />}
                         className="service-detail-card__button"
                       >
