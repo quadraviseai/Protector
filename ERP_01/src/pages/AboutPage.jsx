@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Alert, Button, Card, Col, Empty, Row, Skeleton, Space, Tag, Typography } from 'antd';
+import { Alert, Avatar, Button, Card, Col, Empty, Row, Skeleton, Space, Tag, Typography } from 'antd';
 import {
   ArrowRightOutlined,
   AuditOutlined,
@@ -16,6 +16,11 @@ import {
   UserOutlined,
   TrophyOutlined
 } from '@ant-design/icons';
+import navamaniPhoto from '../assect/img/Navamani_pillappa.jpeg';
+import sridharPhoto from '../assect/img/Sridhar.jpeg';
+import krishnaMurthyPhoto from '../assect/img/Krishna_Murthy.jpeg';
+import veluPhoto from '../assect/img/Velu.jpeg';
+import sagarPhoto from '../assect/img/Sagar.jpeg';
 
 const values = [
   {
@@ -92,20 +97,23 @@ const serviceFocusItems = [
 
 const directors = [
   {
-    name: 'Navamani P',
+    name: 'Navamani Pillappa',
     icon: <CrownOutlined />,
-    role: 'Director - Operation - Facility Management',
+    photo: navamaniPhoto,
+    role: 'Director - Operations - Facility Management',
     description: 'Navamani P, Head of Business Operations - Housekeeping & Facility Management, brings over 37 years of industry experience since 1989. With a background in engineering, he has worked with leading organizations including DTSS, HFPL, CLR, and Uttara. His expertise spans training, transition, end-to-end operations, and client management. He is known for his structured approach and strong leadership in delivering consistent service excellence.'
   },
   {
     name: 'Sridhar S',
     icon: <SafetyCertificateOutlined />,
+    photo: sridharPhoto,
     role: 'Director - Security Services',
     description: 'S. Sridhar holds a B.E. in Mechanical Engineering along with a Diploma in Mechanical Engineering and brings extensive experience in the security industry. He has served for over 15 years with Eagle Eye, where he gained strong expertise in operations management and recruitment, particularly in selecting and deploying personnel across various security functions. Under his leadership, Protector Redefining Security, established in December 2002, has grown into a trusted service provider across Karnataka, with a workforce of over 450 trained security personnel.'
   },
   {
     name: 'Krishna Murthy',
     icon: <IdcardOutlined />,
+    photo: krishnaMurthyPhoto,
     role: 'Director - Facility Management & Garden and Landscape Architect',
     description: 'Krishna Murthy is a seasoned professional in facility management and landscape architecture, bringing extensive experience in creating and maintaining functional and aesthetically enhanced environments. With a strong understanding of indoor and outdoor space management, he specializes in integrating greenery solutions with operational efficiency. His expertise includes facility maintenance planning, indoor gardening, landscape design, and sustainable green solutions. He plays a key role in enhancing workplace environments by combining practical facility operations with modern landscaping concepts, ensuring both visual appeal and environmental well-being.'
   },
@@ -118,16 +126,26 @@ const directors = [
   {
     name: 'Velayutham Raja',
     icon: <AuditOutlined />,
+    photo: veluPhoto,
     role: 'Senior Manager Operations',
     description: 'Velayutham Raja supports operational management with a focus on execution, supervision, and quality control. He plays a critical role in coordinating field teams, monitoring service performance, and ensuring compliance with company standards. With practical experience in handling on-ground challenges, he contributes to maintaining service reliability and operational efficiency across projects.'
   },
   {
     name: 'Sagar Venkatesh',
     icon: <BankOutlined />,
+    photo: sagarPhoto,
     role: 'Finance Consultant',
     description: 'Sagar is responsible for overseeing financial planning, compliance, and advisory functions of the organization. With expertise in accounting, taxation, and financial management, he ensures strong financial discipline and regulatory compliance. He supports the organization in strategic decision-making by providing financial insights, cost optimization strategies, and structured financial reporting.'
   }
 ];
+
+function DirectorAvatar({ director }) {
+  if (director.photo) {
+    return <Avatar src={director.photo} className="about-card__avatar" />;
+  }
+
+  return director.icon;
+}
 
 function ServiceFocusCard({ icon, title }) {
   return (
@@ -337,7 +355,9 @@ function AboutPage() {
                 <div className="about-card__ribbon">
                   <span>Leadership</span>
                 </div>
-                <div className="about-card__icon">{director.icon}</div>
+                <div className="about-card__icon">
+                  <DirectorAvatar director={director} />
+                </div>
                 <Typography.Title level={4} className="about-card__title">
                   {director.name}
                 </Typography.Title>

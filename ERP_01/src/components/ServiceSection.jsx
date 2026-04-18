@@ -1,6 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Button, Card, Col, Empty, Row, Skeleton, Typography } from 'antd';
 import homeWhyImage from '../assect/img/home_why.png';
+import securityServicesImage from '../assect/img/Security_Services.png';
+import facilityManagementImage from '../assect/img/Facility_Management.png';
+import deepCleaningImage from '../assect/img/Deep_Cleaning.png';
+import indoorGardeningImage from '../assect/img/Indoor_Gardening.png';
+
+const serviceImages = {
+  'Security Services': securityServicesImage,
+  'Facility Management': facilityManagementImage,
+  'Deep Cleaning': deepCleaningImage,
+  'Indoor Gardening': indoorGardeningImage
+};
 
 function ServiceSection({ services }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -38,8 +49,12 @@ function ServiceSection({ services }) {
                 cover={
                   <div
                     className="service-card__image"
-                    style={{ backgroundImage: `url(${homeWhyImage})` }}
                   >
+                    <img
+                      src={serviceImages[service.title] || homeWhyImage}
+                      alt={service.title}
+                      className="service-card__img"
+                    />
                     <Button size="small" href="/services#service-overview" className="service-card__action">
                       Know More
                     </Button>
