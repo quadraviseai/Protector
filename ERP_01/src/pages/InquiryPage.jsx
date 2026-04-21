@@ -26,6 +26,7 @@ const serviceOptions = [
 function InquiryPage() {
   const phoneNumber = '+919900431123';
   const whatsappLink = 'https://wa.me/919900431123';
+  const contactEmail = 'hello@protectorservices.in';
   const [form] = Form.useForm();
   const [messageApi, contextHolder] = message.useMessage();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -35,19 +36,31 @@ function InquiryPage() {
     setSubmitError('');
     setIsSubmitting(true);
 
-    await new Promise((resolve) => {
-      window.setTimeout(resolve, 1200);
-    });
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          ...values,
+          subject: `Inquiry for ${values.serviceType}`
+        })
+      });
 
-    if (values.email?.toLowerCase().includes('fail')) {
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Inquiry submission failed. Please retry or use quick contact options.');
+      }
+
+      messageApi.success(`Thank you. Your request has been sent to ${contactEmail}.`);
+      form.resetFields();
+    } catch (error) {
+      setSubmitError(error.message || 'Inquiry submission failed. Please retry or use quick contact options.');
+    } finally {
       setIsSubmitting(false);
-      setSubmitError('Inquiry submission failed. Please retry or use quick contact options.');
-      return;
     }
-
-    setIsSubmitting(false);
-    messageApi.success('Thank you. Your request has been received and our team will contact you within 24 hours.');
-    form.resetFields();
   };
 
   return (

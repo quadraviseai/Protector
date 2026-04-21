@@ -21,7 +21,7 @@ function Footer() {
             Phone: <a href="tel:+919900431123">+91 99004 31123</a>
           </Typography.Paragraph>
           <Typography.Paragraph>
-            Email: <a href="mailto:contact@protectorservices.in">contact@protectorservices.in</a>
+            Email: <a href="mailto:hello@protectorservices.in">hello@protectorservices.in</a>
           </Typography.Paragraph>
         </Col>
         <Col xs={24} md={8}>

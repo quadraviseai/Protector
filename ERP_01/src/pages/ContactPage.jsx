@@ -25,6 +25,7 @@ import logo from '../assect/img/logo.png';
 function ContactPage() {
   const phoneNumber = '+919900431123';
   const whatsappLink = 'https://wa.me/919900431123';
+  const contactEmail = 'hello@protectorservices.in';
   const officeAddress = 'No. 25A 1st floor Venkateshwara, Commercial 6th Main, R T Nagar, Bangalore North, Bangalore - 560032, Karnataka';
   const googleMapsQuery = 'No.%2025A%201st%20floor%20Venkateshwara%20Commercial%206th%20Main%20R%20T%20Nagar%20Bangalore%20560032';
   const googleMapsUrl = `https://maps.google.com/?q=${googleMapsQuery}`;
@@ -47,20 +48,28 @@ function ContactPage() {
   const handleSubmit = async (values) => {
     setSubmitError('');
     setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      });
 
-    await new Promise((resolve) => {
-      window.setTimeout(resolve, 1200);
-    });
+      const result = await response.json();
 
-    if (values.email?.toLowerCase().includes('fail')) {
+      if (!response.ok) {
+        throw new Error(result.message || 'Message submission failed. Please try again.');
+      }
+
+      messageApi.success(`Your inquiry has been sent to ${contactEmail}.`);
+      form.resetFields();
+    } catch (error) {
+      setSubmitError(error.message || 'Message submission failed. Please try again or use quick contact options.');
+    } finally {
       setIsSubmitting(false);
-      setSubmitError('Message submission failed. Please try again or use quick contact options.');
-      return;
     }
-
-    setIsSubmitting(false);
-    messageApi.success('Your inquiry has been submitted successfully.');
-    form.resetFields();
   };
 
   return (
@@ -135,7 +144,7 @@ function ContactPage() {
                 Email Address
               </Typography.Title>
               <Typography.Paragraph className="about-card__description">
-                <a href="mailto:contact@yashaswi.com">contact@yashaswi.com</a>
+                <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
               </Typography.Paragraph>
             </Card>
           </Col>
